@@ -1,0 +1,24 @@
+version: '3'
+services:
+ fisco: 
+  build: .
+  container_name: fisco-webase5002
+  ports:
+    - 20200:20200
+    - 5002:5002
+    - 30300:30300
+    - 8545:8545
+  restart: always
+  tty: true
+  environment:
+    - JAVA_HOME=/usr
+  volumes:
+    - ./logs/node0:/fisco/nodes/127.0.0.1/node0/log
+    - ./logs/node1:/fisco/nodes/127.0.0.1/node1/log
+    - ./logs/node2:/fisco/nodes/127.0.0.1/node2/log
+    - ./logs/node3:/fisco/nodes/127.0.0.1/node3/log
+  networks:
+    - default
+networks:
+  default:
+    driver: bridge
