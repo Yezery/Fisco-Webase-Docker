@@ -72,7 +72,7 @@ docker images -a
 #### 3、运行容器
 
 ```ini
-docker run -e JAVA_HOME=/usr -it --name=fisco-webase5002 -v ./logs/node0:/fisco/nodes/127.0.0.1/node0/log -v ./logs/node1:/fisco/nodes/127.0.0.1/node1/log -v ./logs/node2:/fisco/nodes/127.0.0.1/node2/log -v ./logs/node3:/fisco/nodes/127.0.0.1/node3/log -p 5002:5002 -p 20200:20200 -p 30300:30300 -p 8545:8545 <镜像ID> /bin/bash startup.sh
+docker run -e JAVA_HOME=/usr -it --name=fisco-webase5002 -p 5002:5002 -p 20200:20200 -p 30300:30300 -p 8545:8545 <镜像ID> /bin/bash startup.sh
 ```
 
 ## 二、访问 WebUI 
@@ -93,7 +93,7 @@ docker run -e JAVA_HOME=/usr -it --name=fisco-webase5002 -v ./logs/node0:/fisco/
 - **20200** 为待连接节点URL端口
 - **8545** 为PRC端口
 - **30300** 为监听端口
-- 节点运行日志已挂载到项目 **logs** 文件下
+- 使用 **Docker-compose** 部署可以到项目 **logs** 文件下获取节点运行日志**（DockerFile 无此挂载日志信息）**
 - 为防止日志占用过大设置了每天 **晚上12点** 自动清除日志
 
 ## 四、相关
