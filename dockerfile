@@ -7,10 +7,10 @@ RUN echo export JAVA_HOME=/usr >> ~/.bashrc && \
     apt-get update && \
     apt-get install -y openjdk-11-jdk openssl curl wget unzip cron && \
     cd / && mkdir -p fisco && cd fisco && \
-    wget https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/WeBASE/releases/download/v1.5.5/webase-front.zip && \
+    wget https://github.com/WeBankBlockchain/WeBASELargeFiles/releases/download/v1.5.5/webase-front.zip && \
     unzip webase-front.zip && \
     rm webase-front.zip && \
-    curl -#LO https://osp-1257653870.cos.ap-guangzhou.myqcloud.com/FISCO-BCOS/FISCO-BCOS/releases/v2.9.1/build_chain.sh && chmod u+x build_chain.sh && \
+    curl -#LO https://gitee.com/FISCO-BCOS/FISCO-BCOS/releases/download/v2.11.0/build_chain.sh && chmod u+x build_chain.sh && \
     bash build_chain.sh -l 127.0.0.1:4 -p 30300,20200,8545 && \
     cp -r nodes/127.0.0.1/sdk/* webase-front/conf/ && \
     apt-get remove -y curl unzip wget && \
